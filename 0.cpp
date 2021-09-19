@@ -144,8 +144,10 @@ void Search_name(string str)
 
 int main()
 {
-	string str;
-    ifstream in ("./test.txt");//read the file(.txt)
+    string file_address;
+    cin >> file_address;
+    ifstream in (file_address.c_str());//read the file
+    string str;
     if (in.is_open())
     {
         while (!in.eof())//file -> str
