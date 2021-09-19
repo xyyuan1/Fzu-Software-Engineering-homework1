@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 #include<fstream>
 using namespace std;
-/*Define program class*/
+/*Define class program*/
 class program
 {
     public:
@@ -15,7 +15,6 @@ program p[32] = {"auto", 0,"break",0,"case",0,"char",0,"const", 0,"continue",0,"
                  "double",0,"else",0,"enum",0,"float",0,"for",0,"goto",0,"if",0,"int",0,
                  "long",0,"register",0, "while", 0,"reuturn",0,"short",0,"signed",0,"sizeof",0,"static", 0,
                  "struct",0,"switch",0,"typedef",0,"union",0,"unsigned",0,"void", 0 ,"volatile",0,"while", 0};
-string str;
 /*declare variables and functions*/
 /*advanced requirements*/
 int switch_number=0;
@@ -27,7 +26,7 @@ int Stack[101]={0}; //define ifelse's stack
 int top=0; //stack's top
 int flg=0;//"else if"'s flag
 /*final requirements*/
-int ifelseifelse_number=0;//记录if_elseif_else结构数量
+int ifelseifelse_number=0;
 
 void Switch_search(int i)
 {
@@ -57,14 +56,14 @@ void Ifelse_judge()
     {
         flg=0;
         ifelse_number++;
-        Stack[top] = 1; //表示if入栈
+        Stack[top] = 1; //push if
         top++;
     }
     if (If_flg==0 && Else_flg==1)//only "else" in the line
     {
     	
         	top--;
-        	Stack[top] = 0; //if出栈
+        	Stack[top] = 0; //pop if
     }
     if (If_flg==1 && Else_flg==1)//only "else if" in the line
     {
@@ -95,7 +94,7 @@ void Print_number()
         }
     }
     cout << "total num: " << sum << endl;
-    if (level > 1)
+    if (level > 1)//level = 2
     {
     	bool Case_flag = false;
         cout << "switch num: " << switch_number << endl;
@@ -114,11 +113,11 @@ void Print_number()
 		}
         cout << endl;
     }
-    if (level > 2)
+    if (level > 2)//level = 3
     {
         cout << "if-else num: " << ifelse_number << endl;
     }
-    if (level > 3)
+    if (level > 3)//level = 4
     {
         cout << "if-elseif-else num: " << ifelseifelse_number << endl;
     }
