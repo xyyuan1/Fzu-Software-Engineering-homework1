@@ -144,9 +144,9 @@ void Search_name(string str)
 
 int main()
 {
-    string file_address;
-    cin >> file_address;
-    ifstream in (file_address.c_str());//read the file
+    string file_name;
+    cin >> file_name;
+    ifstream in (file_name.c_str());//read the file (example：./test.c)./
     string str;
     if (in.is_open())
     {
@@ -155,6 +155,11 @@ int main()
             getline (in,str); //search by lines
             Search_name (str);
         }      
+    }
+    else
+    {
+        cout << "Error opening " << file_name << " for input" << endl;
+        return -1;
     }
     /*output the results*/
     Print_number();
