@@ -31,13 +31,18 @@ int flg = 0;//"else if"'s flag
 /*final requirements*/
 int ifelseifelse_number = 0;
 
+void Case_count(int );
 void Switch_search(int i)
 {
     if (i == 25)//switch
     {
         switch_number++;
     }
-    else if (i == 2)//case
+    Case_count(i);
+}
+void Case_count(int i)
+{
+    if (i == 2)//case
     {
         case_number[switch_number]++;//case_number+1 in this switch structure
     }
