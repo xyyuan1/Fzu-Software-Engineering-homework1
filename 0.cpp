@@ -24,7 +24,7 @@ int switch_number = 0;
 int case_number[50] = {0};
 /*further requirements*/
 int ifelse_number = 0;
-int If_flg = 0, Else_flg = 0;
+bool If_flg = false, Else_flg = false;
 int Stack[101] = {0}; //define ifelse's stack
 int top = 0; //stack's top
 int flg = 0;//"else if"'s flag
@@ -46,39 +46,39 @@ void Ifelse_search(int i)
 {
     if (i == 14)
     {
-        If_flg = 1;
+        If_flg = true;
     }
     if (i == 9)
     {
-        Else_flg = 1;
+        Else_flg = true;
     }
 }
 void Ifelse_judge()
 {
-    if (If_flg == 1 && Else_flg == 0)//only "if" in the line
+    if (If_flg == true && Else_flg == false)//only "if" in the line
     {
         flg = 0;
         ifelse_number++;
         Stack[top] = 1; //push if
         top++;
     }
-    if (If_flg == 0 && Else_flg == 1)//only "else" in the line
+    if (If_flg == false && Else_flg == true)//only "else" in the line
     {
     	
         	top--;
         	Stack[top] = 0; //pop if
     }
-    if (If_flg == 1 && Else_flg == 1)//only "else if" in the line
+    if (If_flg == true && Else_flg == true)//only "else if" in the line
     {
         if (flg == 0)
         {
         	ifelse_number--;
             ifelseifelse_number++;
-        	flg = 1;
+        	flg = true;
         }
     }
-    If_flg = 0;
-    Else_flg = 0;
+    If_flg = false;
+    Else_flg = false;
 }
 /*output the results*/ 
 void Print_number()
