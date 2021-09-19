@@ -1,5 +1,4 @@
 #include<bits/stdc++.h>
-#include<fstream>
 using namespace std;
 /*Define class program*/
 class program
@@ -7,8 +6,12 @@ class program
     public:
         string name;//Keyword
         int number; //Keywords' numbers
-    	void Search_name(string str);//the function of searching keywords
+    	void Search_name(string );//the function of searching keywords
         void Print_number();
+        void Switch_search(int );
+        void Case_count(int );
+        void Ifelse_search(int );
+        void Ifelse_judge();
 };
 /*Define the keyword array*/
 program p[32] = {"auto", 0,"break",0,"case",0,"char",0,"const", 0,"continue",0,"default",0,"do", 0,
@@ -70,10 +73,7 @@ void Ifelse_judge()
         if (flg == 0)
         {
         	ifelse_number--;
-        	if (str.find("}") == -1)
-        	{
-        		ifelseifelse_number++;
-        	}	
+            ifelseifelse_number++;
         	flg = 1;
         }
     }
@@ -140,10 +140,10 @@ void Search_name(string str)
 int main()
 {
 	string str;
-    ifstream in ("./test if_else.txt");//read the file(.txt)
+    ifstream in ("./test.txt");//read the file(.txt)
     if (in.is_open())
     {
-        while (!in.eof())
+        while (!in.eof())//file -> str
         {
             getline (in,str); //search by lines
             Search_name (str);
