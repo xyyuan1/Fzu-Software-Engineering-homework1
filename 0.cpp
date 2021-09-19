@@ -17,57 +17,57 @@ program p[32] = {"auto", 0,"break",0,"case",0,"char",0,"const", 0,"continue",0,"
                  "struct",0,"switch",0,"typedef",0,"union",0,"unsigned",0,"void", 0 ,"volatile",0,"while", 0};
 /*declare variables and functions*/
 /*advanced requirements*/
-int switch_number=0;
-int case_number[50]={0};
+int switch_number = 0;
+int case_number[50] = {0};
 /*further requirements*/
-int ifelse_number=0;
-int If_flg=0, Else_flg=0;
-int Stack[101]={0}; //define ifelse's stack
-int top=0; //stack's top
-int flg=0;//"else if"'s flag
+int ifelse_number = 0;
+int If_flg = 0, Else_flg = 0;
+int Stack[101] = {0}; //define ifelse's stack
+int top = 0; //stack's top
+int flg = 0;//"else if"'s flag
 /*final requirements*/
-int ifelseifelse_number=0;
+int ifelseifelse_number = 0;
 
 void Switch_search(int i)
 {
-    if (i==25)//switch
+    if (i == 25)//switch
     {
         switch_number++;
     }
-    else if (i==2)//case
+    else if (i == 2)//case
     {
         case_number[switch_number]++;//case_number+1 in this switch structure
     }
 }
 void Ifelse_search(int i)
 {
-    if (i==14)
+    if (i == 14)
     {
         If_flg = 1;
     }
-    if (i==9)
+    if (i == 9)
     {
         Else_flg = 1;
     }
 }
 void Ifelse_judge()
 {
-    if (If_flg==1 && Else_flg==0)//only "if" in the line
+    if (If_flg == 1 && Else_flg == 0)//only "if" in the line
     {
-        flg=0;
+        flg = 0;
         ifelse_number++;
         Stack[top] = 1; //push if
         top++;
     }
-    if (If_flg==0 && Else_flg==1)//only "else" in the line
+    if (If_flg == 0 && Else_flg == 1)//only "else" in the line
     {
     	
         	top--;
         	Stack[top] = 0; //pop if
     }
-    if (If_flg==1 && Else_flg==1)//only "else if" in the line
+    if (If_flg == 1 && Else_flg == 1)//only "else if" in the line
     {
-        if (flg==0)
+        if (flg == 0)
         {
         	ifelse_number--;
         	if (str.find("}") == -1)
@@ -88,7 +88,7 @@ void Print_number()
     int sum;//total num
     for (int i = 0; i < 32; i++)
     {
-        if (p[i].number!=0)
+        if (p[i].number != 0)
         { 
             sum += p[i].number;
         }
@@ -101,7 +101,7 @@ void Print_number()
         cout << "case num: ";
         for (int i = 0; i < 50; i++)
         {
-            if (case_number[i]!=0)
+            if (case_number[i] != 0)
             {
             	cout << case_number[i] << " ";
             	Case_flag = true;
@@ -125,9 +125,9 @@ void Print_number()
 
 void Search_name(string str)
 {
-    for(int i=0; i<32; i++)
+    for (int i = 0; i < 32; i++)
     {
-        if(str.find(p[i].name)!=-1)
+        if (str.find (p[i].name) != -1)
         {
             p[i].number++;
             Switch_search(i);
@@ -140,13 +140,13 @@ void Search_name(string str)
 int main()
 {
 	string str;
-    ifstream in("./test if_else.txt");//read the file(.txt)
+    ifstream in ("./test if_else.txt");//read the file(.txt)
     if (in.is_open())
     {
         while (!in.eof())
         {
-            getline(in,str); //search by lines
-            Search_name(str);
+            getline (in,str); //search by lines
+            Search_name (str);
         }      
     }
     /*output the results*/
