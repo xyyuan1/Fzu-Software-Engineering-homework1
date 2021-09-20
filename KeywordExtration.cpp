@@ -88,6 +88,7 @@ void Ifelse_judge()
 /*output the results*/
 void Print_number()
 {
+    cout << "please enter the level:" << endl;
     int level;
     cin >> level;
     int sum;//total num
@@ -145,6 +146,7 @@ int main()
 {
     string file_name;
     /* input file address*/
+    cout << "Please enter the file address:" << endl;
     cin >> file_name;
     ifstream in(file_name.c_str());//read the file (example：./test.c)./
     string str;
