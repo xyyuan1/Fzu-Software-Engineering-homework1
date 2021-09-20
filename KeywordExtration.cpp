@@ -21,11 +21,11 @@ program p[32] = { "auto", 0,"break",0,"case",0,"char",0,"const", 0,"continue",0,
 /*declare variables and functions*/
 /*advanced requirements*/
 int switch_number = 0;
-int case_number[50] = { 0 };
+int case_number[50] = {0};
 /*further requirements*/
 int ifelse_number = 0;
 bool If_flg = false, Else_flg = false;
-int Stack[101] = { 0 }; //define ifelse's stack
+int Stack[101] = {0}; //define ifelse's stack
 int top = 0; //stack's top
 int flg = 0;//"else if"'s flag
 /*final requirements*/
