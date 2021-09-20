@@ -144,6 +144,7 @@ void Search_name(string str)
 int main()
 {
     string file_name;
+    /* input file address*/
     cin >> file_name;
     ifstream in(file_name.c_str());//read the file (example：./test.c)./
     string str;
